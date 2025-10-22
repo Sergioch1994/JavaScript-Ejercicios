@@ -26,12 +26,8 @@ shadowRoot.innerHTML = `
   <p>Este es un párrafo dentro del Shadow DOM</p>
 `;
 
-
-
-
-    
- 
-
+const shadowP = shadowRoot.querySelector('p');
+shadowP.textContent = 'Hola desde el Shadow DOM';
 
 </script>
 
