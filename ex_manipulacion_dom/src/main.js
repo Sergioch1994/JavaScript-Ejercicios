@@ -16,6 +16,11 @@ div6.addEventListener('mousemove', (a) => {
 
 // EX7
 
+const inputTest = document.createElement('input');
+inputTest.setAttribute('id', 'input-test');
+const contenedorEx7 = document.querySelector('#ex7');
+contenedorEx7.appendChild(inputTest);
+
 
 
 
