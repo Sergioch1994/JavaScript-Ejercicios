@@ -3,26 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ex_manipulacion_dom</title>
   </head>
   <body>
     <div id="app">
-      <!--Ejercicios si son HTML-->
+      <!--Ejercicios Shadow Dom-->
+  <div id="elementoEx5"></div>
+  
+  <script>  
+let shadowhost = document.querySelector('#elementoEx5');
+let shadowRoot = shadowhost.attachShadow({ mode: 'open' });
 
-      <!--Ex1-->
-
-      <p id="textEx1">Texto ejercicio 1</p>
-
-      <h1 class="h1Ex1">Primer texto h1</h1>
-      <h1 class="h1Ex1">Segundo texto h1</h1>
-
-      <!--Ex2-->
-
-      <div id="divEx2"></div>
-
+shadowRoot.innerHTML = `
+  <style>
+    p {
+      color: red;
+      font-size: 20px;
+    }
+  </style>
+  <p>Este es un párrafo dentro del Shadow DOM</p>
+`;
 
 
+
+
+    
+ 
+
+
+</script>
+
+  <div id="ex6"></div>
 
     </div>
     <script type="module" src="/src/main.js"></script>
