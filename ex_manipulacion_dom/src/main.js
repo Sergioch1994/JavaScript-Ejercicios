@@ -35,19 +35,14 @@ elementoDragable.draggable = true;
 app.appendChild(zonaParaDrop);
 app.appendChild(elementoDragable);
 
-const ciudad = {
-  nombre: 'Madrid',
-  pais: 'España',
-  poblacion: 3223000
-}
+const ciudad = {nombre: "Madrid", pais: "España", poblacion: 3223000};
 
-const datosParaEnviar = JSON.stringify(ciudad);
 
 
 
 
 elementoDragable.addEventListener('dragstart', (event) => {
-  event.dataTransfer.setData("sendData", datosParaEnviar);
+  event.dataTransfer.setData("sendData", JSON.stringify(ciudad));
   console.log("Lanzando dragstart");
 })
 
@@ -58,11 +53,15 @@ zonaParaDrop.addEventListener('dragover', (event) => {
 
 zonaParaDrop.addEventListener('drop', (event) => {
   event.preventDefault();
-  const datosRecibidos = event.dataTransfer.getData("sendData");
+  const datosRecibidos = JSON.parse(event.dataTransfer.getData("sendData"));
   zonaParaDrop.textContent = datosRecibidos;
   console.log("Drop realizado");
   
 });
+
+
+
+
 
 
 
