@@ -21,6 +21,48 @@ inputTest.setAttribute('id', 'input-test');
 const contenedorEx7 = document.querySelector('#ex7');
 contenedorEx7.appendChild(inputTest);
 
+// EX 13
+
+const zonaParaDrop = document.createElement('div');
+zonaParaDrop.className = 'zona-drag';
+zonaParaDrop.textContent = 'Suelta el dragable aquí';
+
+const elementoDragable = document.createElement('div');
+elementoDragable.className = 'dragable';
+elementoDragable.textContent = 'Elemento Dragable';
+elementoDragable.draggable = true;
+
+app.appendChild(zonaParaDrop);
+app.appendChild(elementoDragable);
+
+const ciudad = {
+  nombre: 'Madrid',
+  pais: 'España',
+  poblacion: 3223000
+}
+
+const datosParaEnviar = JSON.stringify(ciudad);
+
+
+
+
+elementoDragable.addEventListener('dragstart', (event) => {
+  event.dataTransfer.setData("sendData", datosParaEnviar);
+  console.log("Lanzando dragstart");
+})
+
+
+zonaParaDrop.addEventListener('dragover', (event) => {
+  event.preventDefault();
+});
+
+zonaParaDrop.addEventListener('drop', (event) => {
+  event.preventDefault();
+  const datosRecibidos = event.dataTransfer.getData("sendData");
+  zonaParaDrop.textContent = datosRecibidos;
+  console.log("Drop realizado");
+  
+});
 
 
 
