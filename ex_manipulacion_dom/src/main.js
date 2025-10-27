@@ -59,6 +59,98 @@ zonaParaDrop.addEventListener('drop', (event) => {
   
 });
 
+// EX 19
+
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(response => response.json())
+  .then(datos => {
+    for (let i = 0; i < datos.length; i++) {
+      console.log(datos[i].name);
+    }
+  })
+  
+
+  // EX 20
+
+  fetch('https://jsonplaceholder.typicode.com/datos')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error al obtener los datos: ' + response.status);
+    }
+    return response.json();
+  })
+  .then(datos => {
+    console.log('Datos recibidos:', datos);
+  })
+  .catch(error => {
+    console.error('Hubo un problema con la petición Fetch:', error);
+  });
+  
+  // EX 21
+
+  const datosEjemplo = {
+   tittle: 'foo',
+   body: 'bar',
+  };
+
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(datosEjemplo)
+  } )
+  .then(response => response.json())
+  .then(datos => {
+    console.log('Respuesta del servidor:', datos);
+  })
+  .catch(error => {
+    console.error('Error al enviar los datos:', error);
+  });
+    
+  // EX 22
+
+  fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: 1,
+      title: 'Changed Title',
+      body: 'Changed Body',
+    })
+  })
+  .then(response => response.json())
+  .then(datos => {
+    console.log('Respuesta del servidor tras PUT:', datos);
+  })
+  .catch(error => {
+    console.error('Error al actualizar los datos:', error);
+  });
+
+  // EX 23
+
+   fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: 1,
+      title: 'Changed Title with PATCH',
+      
+    })
+  })
+  .then(response => response.json())
+  .then(datos => {
+    console.log('Respuesta del servidor tras PATCH:', datos);
+  })
+  .catch(error => {
+    console.error('Error al actualizar los datos:', error);
+  });
+
+
 
 
 
