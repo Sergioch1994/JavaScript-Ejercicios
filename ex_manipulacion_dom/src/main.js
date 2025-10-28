@@ -150,6 +150,22 @@ fetch('https://jsonplaceholder.typicode.com/users')
     console.error('Error al actualizar los datos:', error);
   });
 
+  // EX 25
+
+  const ex25 = document.querySelector('#ex25');
+  const botonEx25 = document.createElement('button');
+  botonEx25.textContent = 'Cargar Datos';
+  botonEx25
+   
+  ex25.appendChild(botonEx25);
+
+  const inputEx25 = document.createElement('input');
+  inputEx25.setAttribute('id', 'inputEx25');
+  inputEx25.textContent = 'Datos cargados aparecerán aquí';
+
+  ex25.appendChild(inputEx25);
+
+  
 
 
 
