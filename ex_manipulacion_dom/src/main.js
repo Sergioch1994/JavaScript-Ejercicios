@@ -1,7 +1,7 @@
-import './style.css'
+import "./style.css";
 
 // EX6
-
+/*
 const ex6 = document.querySelector('#ex6');
 const div6 = document.createElement('div');
 div6.textContent = 'Este es el contenido del div creado dinámicamente para el ejercicio 6.';
@@ -149,48 +149,37 @@ fetch('https://jsonplaceholder.typicode.com/users')
   .catch(error => {
     console.error('Error al actualizar los datos:', error);
   });
+*/
+// EX 25
 
-  // EX 25
+const ex25 = document.querySelector("#ex25");
+const botonEx25 = document.createElement("button");
+botonEx25.textContent = "Guardar";
 
-  const ex25 = document.querySelector('#ex25');
-  const botonEx25 = document.createElement('button');
-  botonEx25.textContent = 'Cargar Datos';
-  botonEx25
-   
-  ex25.appendChild(botonEx25);
+const inputEx25 = document.createElement("input");
+inputEx25.setAttribute("id", "inputEx25");
+inputEx25.placeholder = "Escribe aquí";
 
-  const inputEx25 = document.createElement('input');
-  inputEx25.setAttribute('id', 'inputEx25');
-  inputEx25.textContent = 'Datos cargados aparecerán aquí';
+const pEx25 = document.createElement("p");
+const pEx26 = document.createElement("p");
 
-  ex25.appendChild(inputEx25);
+ex25.appendChild(inputEx25);
+ex25.appendChild(botonEx25);
+ex25.appendChild(pEx25);
+ex25.appendChild(pEx26);
 
-  
+if (typeof localStorage !== undefined) {
+  pEx25.textContent = localStorage.getItem("nomberHash");
+}
+if (typeof sessionStorage !== undefined) {
+    pEx26.textContent = sessionStorage.getItem("nomberHash")
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+botonEx25.addEventListener("click", () => {
+  if (typeof localStorage !== undefined) {
+    localStorage.setItem("nomberHash", inputEx25.value);
+  }
+  if (typeof sessionStorage !== undefined) {
+    sessionStorage.setItem("nomberHash", inputEx25.value);
+  }
+});
